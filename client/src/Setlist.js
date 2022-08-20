@@ -3,32 +3,27 @@ import { Link } from "react-router-dom"
 
 
 function Setlist({setlist}) {
-  const [songs, setSongs] = useState();
+  const [setlistSongs, setSetlistSongs] = useState();
 
   
-  const joinTable = setlist.setlist_songs
-  
-  const arrayOfSongs = joinTable.map((tableEntry) => tableEntry.song_id)
-  
-  const song = arrayOfSongs.map((song) => (song))
-
-  useEffect(() => {
-    fetch(`/songs/${song}`)
-    .then((r) => r.json())
-    .then(data => setSongs(data))
-  },[])
-
-  // console.log(setlist.name, ":", songs.title)
-  // console.log(setlist.name, ": ", songs.title)
-
-  {songs?.length > 0 ? songs?.map((song) => console.log(setlist.name, ": ", song.title)) : console.log("No songs yet -- add some!")}
-  // const titles = songs?.map((song) => console.log(song.title))
-  // console.log(titles)
-
+//   fetch("/setlist_songs", {
+//     method: "DELETE",
+//   }).then((r) => {
+//     if (r.ok) {
+//         setSetlistSongs();
+//     }
+//   });;
+// }
   return (
     <>
-    <div>{setlist.name} : {arrayOfSongs.length} songs</div>
-    
+    <div>{setlist.name} : {setlist.songs.length} {setlist.songs.length > 1 ? "songs" : "song" }</div>
+    <ul>
+    {setlist.songs.map((song) => (
+      <li key={song.id}>{song.title} </li>
+      ))}
+      <button type="submit">x</button>
+    </ul>
+      
     </>
 
   )

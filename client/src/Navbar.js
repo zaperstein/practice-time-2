@@ -15,7 +15,7 @@ function Navbar({ onLogout }) {
     });;
   }
 
-  console.log(user)
+  
 
   return (
     
