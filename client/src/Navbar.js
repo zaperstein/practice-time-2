@@ -27,6 +27,7 @@ function Navbar({ onLogout }) {
     <nav>
       <Link to="setlists">My Gigs</Link>
       <Link to="myinstruments">My Instruments</Link>
+      <Link to="/songs">All Songs</Link>
     </nav>
     </>
   );

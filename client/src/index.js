@@ -14,6 +14,7 @@ import Instrument from "./Instrument"
 import UserInstruments from "./UserInstruments"
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from "./context/user"
+import Songs from "./Songs"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,7 +25,7 @@ root.render(
       <Route path="/" element={<App />} /> 
       <Route path="/login" element={<Login />} />
       <Route path="/navbar" element={<Navbar />} />  
-      <Route path="/song" element={<Song />} />
+      <Route path="/songs" element={<Songs />} />
 
       <Route path="/practicenote" element={<PracticeNote />} />
       <Route path="/instruments" element={<Instruments />}>

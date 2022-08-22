@@ -11,9 +11,6 @@ function NewSetListForm({setlists, setSetlists}) {
 
     e.preventDefault();
     
-    // const newSetlist = {
-    //   ...formData
-    // }
 
     fetch('/setlists', {
         method: "POST",
@@ -29,6 +26,7 @@ function NewSetListForm({setlists, setSetlists}) {
     })
     .then((resp) => resp.json())
     .then(newSetlist => setSetlists([...setlists, newSetlist]))
+
 };
 
   function handleChange(e) {

@@ -8,5 +8,14 @@ class SetlistSongsController < ApplicationController
     setlist_song.destroy 
     head :no_content, status: :ok
     end
+
+  def create
+    render json: SetlistSong.create(setlist_song_params), status: :created
+  end
+
+  private 
+
+  def setlist_song_params
+    params.permit(:song_id, :setlist_id, :setlist_song)
   end
 end

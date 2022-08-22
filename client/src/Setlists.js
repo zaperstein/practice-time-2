@@ -20,7 +20,7 @@ function Setlists() {
 // })
 // }, [])
 
-    useEffect(() => {
+  useEffect(() => {
   fetch(`/setlists`)
   .then((r) => r.json())
   .then(data => setSetlists(data))
@@ -28,15 +28,11 @@ function Setlists() {
 
 
 
-// console.log(setlists.map((setlist) => {setlist.name}))
 
-// setlists?.map((setlist) => (
-//    <Setlist key={setlist.id} setlist={setlist}/>
-// ))
 
   return (
     <>
-    <h1>{user.username}'s Gigs</h1>
+    <h1>{user?.username}'s Gigs</h1>
     {setlists?.map((setlist) => (
    <Setlist key={setlist.id} setlist={setlist}/>
 ))}
