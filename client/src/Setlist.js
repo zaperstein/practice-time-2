@@ -31,7 +31,7 @@ function toggleDisplay(e) {
       <>
       <form >
         <li key={song.id}>{song.title} </li>
-        <button onClick={toggleDisplay}>Click for lyrics</button>
+        <button onClick={toggleDisplay}>Click for lyrics for this setlist</button>
         <li style={{display: display}}>{song.lyrics}</li>
       {/* <button type="submit">x</button> */}
       </form>
