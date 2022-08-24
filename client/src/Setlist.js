@@ -5,6 +5,7 @@ import AddSongToSetlistForm from './AddSongToSetlistForm';
 
 function Setlist({setlist}) {
   const [songId, setSongId] = useState('')
+  const [display, setDisplay] = useState("none")
 
   function handleDeleteSong(e){
     const songId = e.target.value
@@ -15,6 +16,10 @@ function Setlist({setlist}) {
     // history.push(`/setlist_songs/${assignment.course.id}/assignments`);
 }
 
+function toggleDisplay(e) {
+  e.preventDefault();
+  display === "none" ? setDisplay("block") : setDisplay("none")
+  }
 
   return (
     <>
@@ -26,8 +31,9 @@ function Setlist({setlist}) {
       <>
       <form >
         <li key={song.id}>{song.title} </li>
-        <li>{song.lyrics}</li>
-      <button type="submit">x</button>
+        <button onClick={toggleDisplay}>Click for lyrics</button>
+        <li style={{display: display}}>{song.lyrics}</li>
+      {/* <button type="submit">x</button> */}
       </form>
       </>
       ))}
