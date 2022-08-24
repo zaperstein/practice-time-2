@@ -4,19 +4,29 @@ import AddSongToSetlistForm from './AddSongToSetlistForm';
 
 
 function Setlist({setlist}) {
+  const [songId, setSongId] = useState('')
 
-  
+  function handleDeleteSong(e){
+    const songId = e.target.value
+      console.log("clicked")
+    // fetch(`/assignments/${id}`, {
+    //     method:'DELETE'
+    //   })
+    // history.push(`/setlist_songs/${assignment.course.id}/assignments`);
+}
+
+
   return (
     <>
-    <div>{setlist.name} : {setlist.songs.length} {setlist.songs.length > 1 ? "songs" : "song" }
+    <div>{setlist?.name} : {setlist.songs?.length} {setlist.songs?.length > 1 ? "songs" : "song" }
     <AddSongToSetlistForm setlist={setlist}/>
     </div>
     <ul>
-    {setlist.songs.map((song) => (
+    {setlist.songs?.map((song) => (
       <>
-      <li key={song.id}>{song.title} </li>
-      <li>{song.lyrics}</li>
-      <form>
+      <form >
+        <li key={song.id}>{song.title} </li>
+        <li>{song.lyrics}</li>
       <button type="submit">x</button>
       </form>
       </>

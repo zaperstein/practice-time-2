@@ -1,6 +1,6 @@
 import React, { useState, } from 'react'
 import {useNavigate} from 'react-router-dom'
-
+import { VStack } from '@chakra-ui/react';
 function Signup() {
   const [formData, setFormData] = useState({
     username: '',
@@ -46,13 +46,15 @@ setFormData({
 }
   return (
     <form onSubmit={handleSubmit}>
+      <VStack>
+
       <input
         placeholder="Choose Your Username"
         type="text"
         name="username"
         value={username}
         onChange={handleChange}
-      />
+        />
       <input 
         placeholder="Choose Your Password"
         type="password"
@@ -69,6 +71,7 @@ setFormData({
         />
       
       <button type="submit">Sign Up</button>
+        </VStack>
     </form>
   )
 }

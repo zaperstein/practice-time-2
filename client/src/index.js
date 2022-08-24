@@ -14,13 +14,20 @@ import Instrument from "./Instrument"
 import UserInstruments from "./UserInstruments"
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from "./context/user"
+import { ThemeProvider } from "./context/theme"
 import Songs from "./Songs"
+import { ChakraProvider, CSSReset } from '@chakra-ui/react'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
+  <ChakraProvider >
+  <CSSReset />
+  <ThemeProvider>
   <UserProvider>
   <BrowserRouter>
+
     <Routes>
       <Route path="/" element={<App />} /> 
       <Route path="/login" element={<Login />} />
@@ -36,9 +43,11 @@ root.render(
         <Route path=":setlistId" element={<Setlist />}/>
       </Route>
 
-    </Routes>
-  </BrowserRouter>
-  </UserProvider>
+      </Routes>
+    </BrowserRouter>
+    </UserProvider>
+    </ThemeProvider>
+    </ChakraProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

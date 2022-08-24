@@ -28,8 +28,6 @@ function Setlists() {
 
 
 
-
-
   return (
     <>
     <h1>{user?.username}'s Gigs</h1>

@@ -1,3 +1,4 @@
+import { VStack } from '@chakra-ui/react';
 import { useState } from 'react';
 // import { useNavigate } from "react-router-dom";
 function Login({ onLogin }) {
@@ -36,22 +37,25 @@ function Login({ onLogin }) {
   
 
   return (
+    
     <form onSubmit={handleSubmit}>
+      <VStack>
       <input
         placeholder="Username"
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-      />
+        />
       <input 
         placeholder="Password"
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-
+        
         />
      
       <button type="submit">Login</button>
+    </VStack>
     </form>
   );
 }
