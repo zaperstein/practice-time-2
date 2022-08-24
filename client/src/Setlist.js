@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
+import { VStack, Input, Button, Text } from '@chakra-ui/react';
 import AddSongToSetlistForm from './AddSongToSetlistForm';
 
 
@@ -23,9 +24,11 @@ function toggleDisplay(e) {
 
   return (
     <>
-    <div>{setlist?.name} : {setlist.songs?.length} {setlist.songs?.length > 1 ? "songs" : "song" }
-    <AddSongToSetlistForm setlist={setlist}/>
-    </div>
+    {/* <Center> */}
+
+        <Text fontSize='2xl'>{setlist?.name} : {setlist.songs?.length} {setlist.songs?.length > 1 ? "songs" : "song" }
+        </Text>
+        <AddSongToSetlistForm setlist={setlist}/>
     <ul>
     {setlist.songs?.map((song) => (
       <>
@@ -39,6 +42,7 @@ function toggleDisplay(e) {
       ))}
     </ul>
       
+      {/* </Center> */}
     </>
 
   )

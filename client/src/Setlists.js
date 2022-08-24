@@ -3,10 +3,13 @@ import { useContext } from "react"
 import { UserContext } from "./context/user"
 import { Link, useParams } from "react-router-dom"
 import Setlist from './Setlist'
+import { ThemeContext } from "./context/theme"
 import NewSetListForm from './NewSetListForm'
+import { Center, Square, Circle, VStack, HStack, Button, Text, Box } from '@chakra-ui/react'
 
 
 function Setlists() {
+  const { darkGreen, lightGreen, tan } = useContext(ThemeContext)
   const { user } = useContext(UserContext)
   const [setlists, setSetlists] = useState([])
 
@@ -29,14 +32,26 @@ function Setlists() {
 
 
   return (
-    <>
-    <h1>{user?.username}'s Gigs</h1>
-    {setlists?.map((setlist) => (
-   <Setlist key={setlist.id} setlist={setlist}/>
-))}
-  <NewSetListForm setlists={setlists} setSetlists={setSetlists}/>
-  <Link to="/myinstruments">My Instruments</Link>
-    </>
+    <Center>
+      <Text
+      bg={darkGreen}
+      color={tan}
+      borderRadius="md"
+      p="10"
+      >
+      <VStack>
+          <Text fontSize='4xl'>{user?.username}'s Gigs</Text>
+          {setlists?.map((setlist) => (
+            <Setlist key={setlist.id} setlist={setlist}/>
+            ))}
+        <NewSetListForm setlists={setlists} setSetlists={setSetlists}/>
+        <Button
+        bg={lightGreen}>
+        <Link to="/myinstruments">My Instruments</Link>
+        </Button>
+      </VStack>
+      </Text>
+    </Center>
   )
 }
 

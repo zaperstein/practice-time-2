@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "./context/user";
+import { ThemeContext } from "./context/theme";
+import { Center, Square, Circle, VStack, HStack, Button, Text } from '@chakra-ui/react'
+
+
 function Navbar({ onLogout }) {
   const { user, setUser } = useContext(UserContext)
+  const { darkGreen, lightGreen, tan } = useContext(ThemeContext)
 
   
   function handleLogout() {
@@ -18,17 +23,34 @@ function Navbar({ onLogout }) {
   
 
   return (
-    
     <>
-    <header>
-      <h2>Welcome, {user.username}!</h2>
+    <Button 
+      bg={darkGreen}
+      color={tan}>
       <Link to="/" onClick={handleLogout}>Logout</Link>
+    </Button>
+    <Center>
+
+    <VStack
+      bg={darkGreen}
+      color="tan"
+      w="50%"
+      m={10}
+      p={10}
+      borderRadius="md"
+      >
+    <header>
+      <Text fontSize='3xl'>Welcome, {user.username}!</Text>
     </header>
     <nav>
-      <Link to="setlists">My Gigs</Link>
-      <Link to="myinstruments">My Instruments</Link>
-      <Link to="/songs">All Songs</Link>
+      <HStack>
+        <Link to="setlists">My Gigs</Link>
+        <Link to="myinstruments">My Instruments</Link>
+        <Link to="/songs">All Songs</Link>
+      </HStack>
     </nav>
+    </VStack>
+    </Center>
     </>
   );
 }

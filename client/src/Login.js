@@ -1,9 +1,12 @@
-import { VStack } from '@chakra-ui/react';
+import { VStack, Input, Button } from '@chakra-ui/react';
 import { useState } from 'react';
+import { ThemeContext } from "./context/theme"
+import { useContext } from "react"
 // import { useNavigate } from "react-router-dom";
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("")
+  const { darkGreen, lightGreen, tan } = useContext(ThemeContext)
   
   // const navigate = useNavigate();
   function handleSubmit(e) {
@@ -39,22 +42,25 @@ function Login({ onLogin }) {
   return (
     
     <form onSubmit={handleSubmit}>
-      <VStack>
-      <input
+      <VStack p="5">
+      <Input
+        color="tan"
         placeholder="Username"
+        _placeholder= {{color: "tan"}}
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         />
-      <input 
+      <Input 
+        color="tan"
         placeholder="Password"
+        _placeholder= {{color: "tan"}}
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        
         />
      
-      <button type="submit">Login</button>
+      <Button type="submit">Login</Button>
     </VStack>
     </form>
   );

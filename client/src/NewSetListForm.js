@@ -1,9 +1,12 @@
 import React, { useContext, useState } from 'react'
 import { UserContext } from "./context/user"
+import { VStack, Input, Button, Text, Center } from '@chakra-ui/react';
+import { ThemeContext } from "./context/theme"
 
 
 
 function NewSetListForm({setlists, setSetlists}) {
+  const { darkGreen, lightGreen, tan } = useContext(ThemeContext)
   const { user } = useContext(UserContext);
   const [name, setName] = useState("")
   
@@ -35,17 +38,23 @@ function NewSetListForm({setlists, setSetlists}) {
   }
 
   return (
+    <VStack>
+      <Center>
     <form onSubmit={handleSubmit}>
-      <h1>Create a new gig</h1>
-      <input
+      <Text fontSize='3xl' >Create a new gig</Text>
+      <Input
         placeholder="Name"
         type="text"
         name="name"
         onChange={handleChange}
         value={name}
-      />
-      <button type="submit">Create</button>
+        />
+      <Button 
+      bg={lightGreen}
+      type="submit">Create</Button>
     </form>
+    </Center>
+    </VStack>
   );
 }
 

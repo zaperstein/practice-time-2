@@ -4,7 +4,7 @@ const ThemeContext = React.createContext();
 
 
 function ThemeProvider({ children }) {
-  const lightGreen = "#5DAA68"
+  const lightGreen = "7fb086"
   const darkGreen = "#3F6844"
   const tan = "#FAF1CF"
   

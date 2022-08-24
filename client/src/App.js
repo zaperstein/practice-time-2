@@ -5,6 +5,7 @@ import Signup from "./Signup";
 import { useContext } from "react";
 import { UserContext } from "./context/user";
 import { ThemeContext } from "./context/theme"
+
 // import { ThemeContext } from "./context/theme"
 import { Stack, HStack, VStack, Avatar, Center } from '@chakra-ui/react'
 function App() {
@@ -35,13 +36,15 @@ function App() {
   } else {
     return (
       <>
-      <Center>
+      <Center mt="25%">
       <VStack 
         bg={darkGreen}
         w="33%"
         mb="2"
         justifyContent="center"
-        alignItems="center">
+        alignItems="center"
+        borderRadius="md"
+        p="5">
         <Avatar src='https://bit.ly/broken-link' />
         <Login onLogin={setUser} />;
         <Signup />

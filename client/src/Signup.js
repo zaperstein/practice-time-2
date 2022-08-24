@@ -1,7 +1,10 @@
-import React, { useState, } from 'react'
-import {useNavigate} from 'react-router-dom'
-import { VStack } from '@chakra-ui/react';
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { VStack, Input, Button, Text } from '@chakra-ui/react';
+import { ThemeContext } from "./context/theme"
+import { useContext } from "react"
 function Signup() {
+  const { darkGreen, lightGreen, tan } = useContext(ThemeContext)
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -48,29 +51,35 @@ setFormData({
     <form onSubmit={handleSubmit}>
       <VStack>
 
-      <input
+      <Input
+        color="tan"
         placeholder="Choose Your Username"
+        _placeholder= {{color: "tan"}}
         type="text"
         name="username"
         value={username}
         onChange={handleChange}
         />
-      <input 
+      <Input 
+        color="tan"
         placeholder="Choose Your Password"
+        _placeholder= {{color: "tan"}}
         type="password"
         name="password"
         value={password}
         onChange={handleChange}
         />
-        <textarea
+        <Input
+        color="tan"
         placeholder="Write a bio"
+        _placeholder= {{color: "tan"}}
         type="text"
         name="bio"
         value={bio}
         onChange={handleChange}
         />
       
-      <button type="submit">Sign Up</button>
+      <Button type="submit">Sign Up</Button>
         </VStack>
     </form>
   )

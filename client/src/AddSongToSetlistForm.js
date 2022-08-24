@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useContext } from "react"
 import { UserContext } from "./context/user"
+import { VStack, Input, Button, Text, Select } from '@chakra-ui/react';
 
 
 
@@ -54,13 +55,15 @@ function AddSongToSetlistForm({setlist}) {
   
   return (
     <form>
-      <select onChange={handleSelect}>
+      <VStack>
+      <Select onChange={handleSelect}>
         <option>SELECT A SONG TO ADD</option>
         {songs?.map((song) => <option >
           {song.title} 
         </option>)}
-      </select>
+      </Select>
       <button type="button" onClick={handleSubmit}>Add Song to {setlist.name}</button>
+    </VStack>
     </form>
   )
 }
