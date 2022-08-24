@@ -38,6 +38,7 @@ function Setlists() {
       color={tan}
       borderRadius="md"
       p="10"
+      m="15"
       >
       <VStack>
           <Text fontSize='4xl'>{user?.username}'s Gigs</Text>

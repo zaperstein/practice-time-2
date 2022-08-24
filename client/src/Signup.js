@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { VStack, Input, Button, Text } from '@chakra-ui/react';
+import { VStack, Input, Button, Textarea } from '@chakra-ui/react';
 import { ThemeContext } from "./context/theme"
 import { useContext } from "react"
 function Signup() {
@@ -69,7 +69,7 @@ setFormData({
         value={password}
         onChange={handleChange}
         />
-        <Input
+        <Textarea
         color="tan"
         placeholder="Write a bio"
         _placeholder= {{color: "tan"}}

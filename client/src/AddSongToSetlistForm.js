@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useContext } from "react"
 import { UserContext } from "./context/user"
+import { ThemeContext } from "./context/theme"
 import { VStack, Input, Button, Text, Select } from '@chakra-ui/react';
 
 
@@ -12,7 +13,9 @@ function AddSongToSetlistForm({setlist}) {
   const [setlistSongs, setSetlistSongs] = useState();
   const [selectedSongObject, setSelectedSongObject] = useState([]);
   const [selectedSongId, setSelectedSongId] = useState();
+  
   const { user } = useContext(UserContext);
+  const { tan, darkGreen, lightGreen } = useContext(ThemeContext);
  
   
   
@@ -31,9 +34,7 @@ function AddSongToSetlistForm({setlist}) {
       setSelectedSongObject(selectedSongObject);
   }
 
-  useEffect(() => {
-    (selectedSongObject[0] == undefined ? console.log("you havent selected anything yet")  : setSelectedSongId(selectedSongObject[0].id))
-  })
+ 
 
   function handleSubmit(e) {
 
@@ -62,7 +63,7 @@ function AddSongToSetlistForm({setlist}) {
           {song.title} 
         </option>)}
       </Select>
-      <button type="button" onClick={handleSubmit}>Add Song to {setlist.name}</button>
+      <Button border="1px" bg={darkGreen} type="button" onClick={handleSubmit}>Add Song to {setlist.name}</Button>
     </VStack>
     </form>
   )

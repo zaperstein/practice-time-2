@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react'
 import PracticeNotes from './PracticeNotes';
 import AddPracticeNoteForm from './AddPracticeNoteForm';
 import SearchSongs from './SearchSongs'
+import { ThemeContext } from "./context/theme"
+import { Center, Square, Circle, VStack, HStack, Button, Text, Box } from '@chakra-ui/react'
+import { useContext } from "react"
 
 function Songs() {
 const [songs, setSongs] = useState();
 const [search, setSearch] = useState('');
+const { darkGreen, lightGreen, tan } = useContext(ThemeContext)
 
   useEffect(() => {
     fetch(`/songs`)
@@ -18,7 +22,7 @@ const [search, setSearch] = useState('');
     );
 
   return (
-    <>
+    <Center>
       <ul>
         <SearchSongs onSearch={setSearch}/>
          {displayedSongs?.map((song) => 
@@ -29,7 +33,7 @@ const [search, setSearch] = useState('');
           </>
          )}
      </ul>
-    </>
+    </Center>
   )
 }
 

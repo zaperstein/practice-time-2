@@ -1,8 +1,11 @@
 import React from 'react'
 
-function PracticeNote() {
+function PracticeNote({practice_note}) {
   return (
-    <div>PracticeNote</div>
+
+    
+    <div>hi</div>
+    
   )
 }
 

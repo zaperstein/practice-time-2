@@ -1,6 +1,7 @@
-
-
 import React, { useState } from "react";
+import { Input, Button, HStack, Box } from '@chakra-ui/react'
+import { Search2Icon } from '@chakra-ui/icons'
+
 
 function SearchSongs({ onSearch }) {
   const [search, setSearch] = useState("");
@@ -11,15 +12,18 @@ function SearchSongs({ onSearch }) {
   }
 
   return (
-    <form className="searchbar" onSubmit={handleSubmit}>
-      <input
+    <form onSubmit={handleSubmit}>
+      <Box >
+
+      <Input
         type="text"
         id="search"
         placeholder="Find a song"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-      />
-      <button type="submit">🔍</button>
+        />
+      <Button type="submit"><Search2Icon/></Button>
+      </Box>
     </form>
   );
 }
