@@ -12,12 +12,12 @@ function PracticeNotes({song}) {
     <Box
     >
 
-      <ul>
+      <Text>
           {song?.practice_notes.map((practice_note) => (
-          <li>{practice_note.content}</li>
+          <Text fontSize="xl">- {practice_note.content}</Text>
            )
           )}
-      </ul>
+      </Text>
     </Box>
    
   )

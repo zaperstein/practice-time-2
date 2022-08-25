@@ -25,20 +25,17 @@ function handleSubmit(e){
         content: content,
         song_id: song.id,
       })
-      
-      
   })
 
 };
 
   return (
     <form onSubmit={handleSubmit}>
-      <p>Add a practice note</p>
       <VStack
       alignItems="center">
 
       <Textarea
-        placeholder="Type notes here"
+        placeholder="Add a practice note here"
         type="text"
         name="content"
         onChange={handleChange}

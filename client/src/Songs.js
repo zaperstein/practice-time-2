@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
 import PracticeNotes from './PracticeNotes';
 import AddPracticeNoteForm from './AddPracticeNoteForm';
+import Song from "./Song"
 import SearchSongs from './SearchSongs'
 import AddSongsToDB from "./AddSongsToDB"
 import { ThemeContext } from "./context/theme"
@@ -25,7 +26,8 @@ const { darkGreen, lightGreen, tan } = useContext(ThemeContext)
 
   return (
     <Center
-    mt="5%">
+    mt="5%"
+    >
         <VStack
         bg={darkGreen}
         color={tan}
@@ -44,9 +46,7 @@ const { darkGreen, lightGreen, tan } = useContext(ThemeContext)
          {displayedSongs?.map((song) => 
           
           <>
-          <Text 
-          textAlign="center"
-          fontSize='3xl'>{song.title}</Text>
+          <Song song={song}/>
           <PracticeNotes song={song}/>
           <AddPracticeNoteForm song={song}/>
           </>
