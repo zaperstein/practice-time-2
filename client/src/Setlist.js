@@ -26,7 +26,7 @@ function Setlist({setlist}) {
     <>
     {/* <Center> */}
 
-        <Text fontSize='2xl'>{setlist?.name} : {setlist.songs?.length} {setlist.songs?.length > 1 ? "songs" : "song" }
+        <Text fontSize='2xl'>{setlist?.name} : {setlist.songs?.length} {setlist.songs?.length > 1 || setlist.songs?.length < 1 ? "songs" : "song" }
         </Text>
         <AddSongToSetlistForm setlist={setlist}/>
     <ul>
