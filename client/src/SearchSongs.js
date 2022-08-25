@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Input, Button, HStack, Box, VStack } from '@chakra-ui/react'
+import { Input, Button, HStack, Box, VStack, Text } from '@chakra-ui/react'
 import { ThemeContext } from "./context/theme"
 import { Search2Icon } from '@chakra-ui/icons'
 
@@ -15,7 +15,7 @@ function SearchSongs({ onSearch }) {
   return (
     <form onSubmit={handleSubmit}>
       <HStack >
-
+      <Text fontSize="2xl">Search Songs</Text>
       <Input
         type="text"
         id="search"

@@ -6,13 +6,15 @@ import { ThemeContext } from "./context/theme"
 function AddPracticeNoteForm({song}) {
   const [content, setContent] = useState("")
   const {tan, darkGreen, lightGreen} = useContext(ThemeContext)
+
+
 function handleChange(e) {
   setContent(e.target.value)
 }
 
 function handleSubmit(e){
   
-
+  e.preventDefault();
   fetch('/practice_notes', {
       method: "POST",
       headers: {
@@ -22,7 +24,9 @@ function handleSubmit(e){
       body: JSON.stringify({
         content: content,
         song_id: song.id,
-      }),
+      })
+      
+      
   })
 
 };

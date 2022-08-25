@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import PracticeNotes from './PracticeNotes';
 import AddPracticeNoteForm from './AddPracticeNoteForm';
 import SearchSongs from './SearchSongs'
+import AddSongsToDB from "./AddSongsToDB"
 import { ThemeContext } from "./context/theme"
 import { Center, Square, Circle, VStack, HStack, Button, Text, Box } from '@chakra-ui/react'
 import { useContext } from "react"
@@ -37,6 +38,7 @@ const { darkGreen, lightGreen, tan } = useContext(ThemeContext)
           <HStack>
           <Text fontSize="5xl">Songs</Text>
           </HStack>
+          <AddSongsToDB />
         <SearchSongs onSearch={setSearch}/>
       <ul>
          {displayedSongs?.map((song) => 
