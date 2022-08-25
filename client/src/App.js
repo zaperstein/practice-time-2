@@ -36,7 +36,7 @@ function App() {
   } else {
     return (
       <>
-      <Center mt="25%">
+      <Center mt="10%">
       <VStack 
         bg={darkGreen}
         w="33%"
