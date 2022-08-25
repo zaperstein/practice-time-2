@@ -25,6 +25,7 @@ function Navbar({ onLogout }) {
   return (
     <>
     <Button 
+      m="20px"
       bg={darkGreen}
       color={tan}>
       <Link to="/" onClick={handleLogout}>Logout</Link>
@@ -33,17 +34,20 @@ function Navbar({ onLogout }) {
 
     <VStack
       bg={darkGreen}
-      color="tan"
+      color={tan}
       w="50%"
       m={10}
       p={10}
       borderRadius="md"
       >
     <header>
-      <Text fontSize='3xl'>Welcome, {user.username}!</Text>
+      <Text fontSize='4xl'>Welcome, {user.username}!</Text>
     </header>
     <nav>
-      <HStack>
+      <HStack 
+      fontSize="2xl"
+      as="u"
+      spacing="15px">
         <Link to={`users/${user.id}/setlists`}>My Gigs</Link>
         <Link to={`users/${user.id}/instruments`}>My Instruments</Link>
         <Link to="/songs">All Songs</Link>

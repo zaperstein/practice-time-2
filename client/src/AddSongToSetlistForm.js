@@ -63,7 +63,7 @@ function AddSongToSetlistForm({setlist}) {
   return (
     <form onClick={handleSubmit}>
       <VStack>
-      <Select onChange={handleSelect}>
+      <Select border="1px" borderColor={tan} bg={darkGreen} onChange={handleSelect}>
         <option>SELECT A SONG TO ADD</option>
         {songs?.map((song) => <option >
           {song.title} 

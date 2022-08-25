@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { Input, Button, HStack, Box } from '@chakra-ui/react'
+import React, { useState, useContext } from "react";
+import { Input, Button, HStack, Box, VStack } from '@chakra-ui/react'
+import { ThemeContext } from "./context/theme"
 import { Search2Icon } from '@chakra-ui/icons'
 
 
 function SearchSongs({ onSearch }) {
   const [search, setSearch] = useState("");
-
+  const {tan, darkGreen, lightGreen } = useContext(ThemeContext)
   function handleSubmit(e) {
     e.preventDefault();
     onSearch(search);
@@ -13,7 +14,7 @@ function SearchSongs({ onSearch }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Box >
+      <HStack >
 
       <Input
         type="text"
@@ -22,8 +23,8 @@ function SearchSongs({ onSearch }) {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         />
-      <Button type="submit"><Search2Icon/></Button>
-      </Box>
+      <Button type="submit"><Search2Icon color={darkGreen}/></Button>
+      </HStack>
     </form>
   );
 }

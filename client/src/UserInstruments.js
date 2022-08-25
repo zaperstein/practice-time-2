@@ -1,4 +1,5 @@
 import React, { useEffect, useState  } from 'react'
+import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom";
 import AddInstrumentForm from "./AddInstrumentForm"
 import { useContext } from "react";
@@ -26,7 +27,7 @@ function UserInstruments() {
   return (
     <>
     <Center
-    mt="25%">
+    mt="5%">
 
       <VStack
       bg={darkGreen}
@@ -44,6 +45,9 @@ function UserInstruments() {
       <UserInstrument  instrument={instrument}/>
       ))}
       <AddInstrumentForm userInstruments={userInstruments} setUserInstruments={setUserInstruments} user={user}/>
+      <Button border="1px" bg={darkGreen} borderColor={tan} color={tan}>
+      <Link to='/'>Homepage</Link>
+      </Button>
       </VStack>
       </Center>
     </>

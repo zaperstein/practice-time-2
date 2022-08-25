@@ -1,4 +1,4 @@
-import { VStack, Input, Button } from '@chakra-ui/react';
+import { VStack, Input, Button, Alert, AlertIcon, HStack, Text } from '@chakra-ui/react';
 import { useState } from 'react';
 import { ThemeContext } from "./context/theme"
 import { useContext } from "react"
@@ -6,6 +6,7 @@ import { useContext } from "react"
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("")
+  const [display, setDisplay] = useState("none")
   const { darkGreen, lightGreen, tan } = useContext(ThemeContext)
   
   // const navigate = useNavigate();
@@ -29,9 +30,9 @@ function Login({ onLogin }) {
         // navigate('/me') //change to user
       })
     }
-    //  else {
-    //   r.json().then(json => setErrors(Object.entries(json.errors)))
-    // }
+     else {
+    setDisplay("block")
+    }
   });
 }
   //     .then((r) => r.json())
@@ -59,6 +60,14 @@ function Login({ onLogin }) {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         />
+        <Alert style={{display: display}}status='error'>
+          <HStack>
+          <AlertIcon/> 
+          <Text>
+            Incorrect username or password
+            </Text>
+          </HStack>
+        </Alert>
      
       <Button type="submit">Login</Button>
     </VStack>

@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { Textarea, Button, VStack } from 
+"@chakra-ui/react"
+import { ThemeContext } from "./context/theme"
 
 function AddPracticeNoteForm({song}) {
   const [content, setContent] = useState("")
-
+  const {tan, darkGreen, lightGreen} = useContext(ThemeContext)
 function handleChange(e) {
   setContent(e.target.value)
 }
@@ -21,22 +24,26 @@ function handleSubmit(e){
         song_id: song.id,
       }),
   })
-//   .then((resp) => resp.json())
-//   .then(newSetlist => setSetlists([...setlists, newSetlist]))
 
 };
 
   return (
     <form onSubmit={handleSubmit}>
       <p>Add a practice note</p>
-      <textarea
+      <VStack
+      alignItems="center">
+
+      <Textarea
         placeholder="Type notes here"
         type="text"
         name="content"
         onChange={handleChange}
         value={content}
-      />
-      <button type="submit">Create</button>
+        />
+      <Button 
+      border="1px" bg={darkGreen} borderColor={tan}
+      type="submit">Add Note</Button>
+      </VStack>
     </form>
   )
 }

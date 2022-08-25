@@ -46,10 +46,16 @@ function Setlists() {
             ))}
         <NewSetListForm setlists={setlists} setSetlists={setSetlists}/>
         <Button
-        bg={lightGreen}>
+        bg={lightGreen}
+        border="1px"
+        type="button">
         <Link to={`/users/${id}/instruments`}>My Instruments</Link>
         </Button>
       </VStack>
+      <Button
+      border="1px" bg={darkGreen} type="button">
+      <Link to='/'>Homepage</Link>
+      </Button>
       </Text>
     </Center>
   )

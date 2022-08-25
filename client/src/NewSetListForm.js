@@ -38,11 +38,13 @@ function NewSetListForm({setlists, setSetlists}) {
   }
 
   return (
-    <VStack>
-      <Center>
+    <Center
+    alignContent="center">
+    
     <form onSubmit={handleSubmit}>
       <Text fontSize='3xl' >Create a new gig</Text>
       <Input
+        borderColor={tan}
         placeholder="Name"
         type="text"
         name="name"
@@ -50,11 +52,10 @@ function NewSetListForm({setlists, setSetlists}) {
         value={name}
         />
       <Button 
-      bg={lightGreen}
-      type="submit">Create</Button>
+      type="submit"
+      border="1px" borderColor={tan} bg={darkGreen} >Create</Button>
     </form>
     </Center>
-    </VStack>
   );
 }
 
