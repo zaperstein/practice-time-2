@@ -13,8 +13,7 @@ function Setlists() {
   const { user } = useContext(UserContext)
   const [setlists, setSetlists] = useState([])
 
-  const {id} = useParams();
-
+  const { id } = useParams();
 //    useEffect(() => {
 //     fetch(`/users/${user.id}/setlists`)
 //     .then((r) => r.json())
@@ -48,7 +47,7 @@ function Setlists() {
         <NewSetListForm setlists={setlists} setSetlists={setSetlists}/>
         <Button
         bg={lightGreen}>
-        <Link to="/myinstruments">My Instruments</Link>
+        <Link to={`/users/${id}/instruments`}>My Instruments</Link>
         </Button>
       </VStack>
       </Text>

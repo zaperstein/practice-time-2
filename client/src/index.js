@@ -39,10 +39,9 @@ root.render(
         <Route path=":instrumentId" element={<Instrument/>}/>
       </Route>
       <Route path="myinstruments" element={<UserInstruments/>} />
-      <Route path="setlists" element={<Setlists />} >
-        <Route path=":setlistId" element={<Setlist />}/>
-      </Route>
-
+      <Route path="users/:id/setlists" element={<Setlists />} />
+      <Route path="users/:id/instruments" element={<UserInstruments />} />
+      
       </Routes>
     </BrowserRouter>
     </UserProvider>

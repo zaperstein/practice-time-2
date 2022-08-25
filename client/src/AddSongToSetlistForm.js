@@ -10,14 +10,14 @@ import { VStack, Input, Button, Text, Select } from '@chakra-ui/react';
 
 function AddSongToSetlistForm({setlist}) {
   const [songs, setSongs] = useState();
-  const [setlistSongs, setSetlistSongs] = useState();
+  const [setlistSongs, setSetlistSongs] = useState([]);
   const [selectedSongObject, setSelectedSongObject] = useState([]);
   const [selectedSongId, setSelectedSongId] = useState();
   
   const { user } = useContext(UserContext);
   const { tan, darkGreen, lightGreen } = useContext(ThemeContext);
+
  
-  
   
   useEffect(() => {
     fetch(`/songs`)
@@ -34,11 +34,14 @@ function AddSongToSetlistForm({setlist}) {
       setSelectedSongObject(selectedSongObject);
   }
 
+  useEffect(() => {
+    (selectedSongObject[0] == undefined ? console.log("you havent selected anything yet")  : setSelectedSongId(selectedSongObject[0].id))
+  })
  
 
   function handleSubmit(e) {
 
-  
+
     fetch('/setlist_songs', {
       method: "POST",
       headers: {
@@ -50,12 +53,15 @@ function AddSongToSetlistForm({setlist}) {
         song_id: selectedSongId,
       }),
     })
-  .then((resp) => resp.json())
-  .then(newSetlistSong => setSetlistSongs([...setlistSongs, newSetlistSong]))
+  // .then((resp) => resp.json())
+  // .then(newSetlistSong => setSetlistSongs([...setlistSongs, newSetlistSong]))
+
   }
+
+  console.log(setlistSongs)
   
   return (
-    <form>
+    <form onClick={handleSubmit}>
       <VStack>
       <Select onChange={handleSelect}>
         <option>SELECT A SONG TO ADD</option>
@@ -63,7 +69,7 @@ function AddSongToSetlistForm({setlist}) {
           {song.title} 
         </option>)}
       </Select>
-      <Button border="1px" bg={darkGreen} type="button" onClick={handleSubmit}>Add Song to {setlist.name}</Button>
+      <Button border="1px" bg={darkGreen} type="button" >Add Song to {setlist.name}</Button>
     </VStack>
     </form>
   )

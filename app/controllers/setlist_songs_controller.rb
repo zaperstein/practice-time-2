@@ -3,6 +3,10 @@ class SetlistSongsController < ApplicationController
     render json: SetlistSong.all
   end
 
+  def show
+    render json: SetlistSong.find(params[:id])
+  end
+
   def destroy
     setlist_song = SetlistSong.find(params[:id])
     setlist_song.destroy 

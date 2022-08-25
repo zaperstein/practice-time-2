@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState  } from 'react'
+import { useParams } from "react-router-dom";
 import AddInstrumentForm from "./AddInstrumentForm"
 import { useContext } from "react";
 import { UserContext } from "./context/user";
@@ -10,24 +11,17 @@ import { Center, Square, Circle, VStack, HStack, Button, Text, Box } from '@chak
 function UserInstruments() {
   const { darkGreen, lightGreen, tan } = useContext(ThemeContext)
   const { user } = useContext(UserContext)
-  const [instruments, setInstruments] = useState()
+  const [userInstruments, setUserInstruments] = useState([])
   
+  const { id } = useParams()
+  console.log(id)
   useEffect(() => {
-    fetch(`/users/${user?.id}/instruments`)
+    fetch(`/users/${id}/instruments`)
     .then((r) => r.json())
-    .then(instruments => {
-    setInstruments(instruments);
+    .then(userInstruments => {
+    setUserInstruments(userInstruments);
 })
 }, [])
-
-function updateInstruments() {
-    fetch(`/users/${user?.id}/instruments`)
-    .then((r) => r.json())
-    .then(instruments => {
-      setInstruments(instruments);
-    })
-}
-  
   
   return (
     <>
@@ -46,10 +40,10 @@ function updateInstruments() {
     <Text
     fontSize='3xl'
     color={tan}>{user?.username}'s Instruments</Text>
-    {instruments?.map((instrument) => (
+    {userInstruments?.map((instrument) => (
       <UserInstrument  instrument={instrument}/>
       ))}
-      <AddInstrumentForm user={user}/>
+      <AddInstrumentForm userInstruments={userInstruments} setUserInstruments={setUserInstruments} user={user}/>
       </VStack>
       </Center>
     </>

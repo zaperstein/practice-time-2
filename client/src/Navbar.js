@@ -44,8 +44,8 @@ function Navbar({ onLogout }) {
     </header>
     <nav>
       <HStack>
-        <Link to="setlists">My Gigs</Link>
-        <Link to="myinstruments">My Instruments</Link>
+        <Link to={`users/${user.id}/setlists`}>My Gigs</Link>
+        <Link to={`users/${user.id}/instruments`}>My Instruments</Link>
         <Link to="/songs">All Songs</Link>
       </HStack>
     </nav>

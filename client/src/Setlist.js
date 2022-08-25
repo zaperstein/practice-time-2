@@ -22,6 +22,12 @@ function toggleDisplay(e) {
   display === "none" ? setDisplay("block") : setDisplay("none")
   }
 
+  function newLineText(text) {
+    const newText = text.split('\n').map(str => <p>{str}</p>);
+    
+    return newText;
+  }
+
   return (
     <>
     {/* <Center> */}
@@ -34,10 +40,10 @@ function toggleDisplay(e) {
       <>
       <form >
         <li key={song.id}>{song.title} </li>
-        <button onClick={toggleDisplay}>Click for lyrics for this setlist</button>
-        <li style={{display: display}}>{song.lyrics}</li>
+        <li style={{display: display}}>{newLineText(song.lyrics)}</li>
       {/* <button type="submit">x</button> */}
       </form>
+        <Button onClick={toggleDisplay}>Click for lyrics for this song</Button>
       </>
       ))}
     </ul>

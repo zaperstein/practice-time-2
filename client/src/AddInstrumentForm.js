@@ -4,9 +4,8 @@ import { useContext } from "react"
 import {ThemeContext} from "./context/theme"
 import {UserContext} from "./context/user"
 
-function AddInstrumentForm() {
+function AddInstrumentForm({userInstruments, setUserInstruments}) {
   const [instruments, setInstruments] = useState();
-  const [instrumentUsers, setInstrumentUsers] = useState();
   const [selectedInstrumentObject, setSelectedInstrumentObject] = useState([]);
   const [selectedInstrumentId, setSelectedInstrumentId] = useState();
 
@@ -24,7 +23,14 @@ function AddInstrumentForm() {
     const selectedInstrumentName = e.target.value
     const selectedInstrumentObject = instruments?.filter((instrument) => instrument.name == selectedInstrumentName)
     setSelectedInstrumentObject(selectedInstrumentObject);
+    // setSelectedInstrumentId(selectedInstrumentObject[0].id)
 }
+
+useEffect(() => {
+  (selectedInstrumentObject[0] == undefined ? console.log("you havent selected an instrument yet")  : setSelectedInstrumentId(selectedInstrumentObject[0].id))
+})
+
+
 
 function handleSubmit(e) {
 
@@ -33,7 +39,6 @@ function handleSubmit(e) {
     method: "POST",
     headers: {
     "Content-Type": "application/json",
-    Accept: "application/json",
     },
     body: JSON.stringify({
       user_id: user.id,
@@ -41,7 +46,7 @@ function handleSubmit(e) {
     }),
   })
 .then((resp) => resp.json())
-.then(newInstrumentUser => setInstrumentUsers([...instrumentUsers, newInstrumentUser]))
+.then(newInstrumentUser => setUserInstruments([...userInstruments, newInstrumentUser]))
 }
 
 
