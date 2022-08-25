@@ -51,11 +51,11 @@ function Setlists() {
         type="button">
         <Link to={`/users/${id}/instruments`}>My Instruments</Link>
         </Button>
-      </VStack>
       <Button
       border="1px" bg={darkGreen} type="button">
       <Link to='/'>Homepage</Link>
       </Button>
+        </VStack>
       </Text>
     </Center>
   )

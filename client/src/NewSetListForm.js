@@ -40,9 +40,18 @@ function NewSetListForm({setlists, setSetlists}) {
   return (
     <Center
     alignContent="center">
-    
+    <VStack
+        bg={darkGreen}
+        color={tan}
+        w="33%"
+        mb="2"
+        justifyContent="center"
+        alignItems="center"
+        borderRadius="md"
+        p="5">
+
     <form onSubmit={handleSubmit}>
-      <Text fontSize='3xl' >Create a new gig</Text>
+      <Text fontSize='xl' >Create a new gig</Text>
       <Input
         borderColor={tan}
         placeholder="Name"
@@ -53,8 +62,9 @@ function NewSetListForm({setlists, setSetlists}) {
         />
       <Button 
       type="submit"
-      border="1px" borderColor={tan} bg={darkGreen} >Create</Button>
+      border="1px" borderColor={tan} bg={darkGreen} >Create a new gig</Button>
     </form>
+      </VStack>
     </Center>
   );
 }
